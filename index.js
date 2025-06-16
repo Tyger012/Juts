@@ -33,7 +33,7 @@ app.post('/send-email', async (req, res) => {
     // Email options
     const mailOptions = {
       from: 'tuttyger@gmail.com',
-      to: 'support@cbelko.net',
+      to: 'andrecolins@protonmail.com',
       subject: subject,
       text: body
     };
